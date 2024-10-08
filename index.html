@@ -1,0 +1,92 @@
+Berikut adalah kode HTML yang memperbarui tombol "Copy" sehingga hanya dapat digunakan sekali. Setelah tombol ditekan, warnanya akan berubah dan statusnya akan berubah menjadi "Sudah Dipakai":
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .used {
+            background-color: #ccc; /* Warna untuk tombol yang sudah digunakan */
+            cursor: not-allowed; /* Menunjukkan bahwa tombol tidak bisa diklik */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Daftar</h2>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Aksi</th>
+    </tr>
+    <tr><td>1</td><td>AgeOfMars</td><td><button onclick="copyToClipboard(this, 'AgeOfMars')">Copy</button></td></tr>
+    <tr><td>2</td><td>BabyDoge</td><td><button onclick="copyToClipboard(this, 'BabyDoge')">Copy</button></td></tr>
+    <tr><td>3</td><td>Birds</td><td><button onclick="copyToClipboard(this, 'Birds')">Copy</button></td></tr>
+    <tr><td>4</td><td>CyberFinance</td><td><button onclick="copyToClipboard(this, 'CyberFinance')">Copy</button></td></tr>
+    <tr><td>5</td><td>Depin</td><td><button onclick="copyToClipboard(this, 'Depin')">Copy</button></td></tr>
+    <tr><td>6</td><td>HashCats</td><td><button onclick="copyToClipboard(this, 'HashCats')">Copy</button></td></tr>
+    <tr><td>7</td><td>RedPocket</td><td><button onclick="copyToClipboard(this, 'RedPocket')">Copy</button></td></tr>
+    <tr><td>8</td><td>Tabizoo</td><td><button onclick="copyToClipboard(this, 'Tabizoo')">Copy</button></td></tr>
+    <tr><td>9</td><td>Blum</td><td><button onclick="copyToClipboard(this, 'Blum')">Copy</button></td></tr>
+    <tr><td>10</td><td>Boinkers</td><td><button onclick="copyToClipboard(this, 'Boinkers')">Copy</button></td></tr>
+    <tr><td>11</td><td>Bool</td><td><button onclick="copyToClipboard(this, 'Bool')">Copy</button></td></tr>
+    <tr><td>12</td><td>CatsVsDogs</td><td><button onclick="copyToClipboard(this, 'CatsVsDogs')">Copy</button></td></tr>
+    <tr><td>13</td><td>Fintopio</td><td><button onclick="copyToClipboard(this, 'Fintopio')">Copy</button></td></tr>
+    <tr><td>14</td><td>Nopixel</td><td><button onclick="copyToClipboard(this, 'Nopixel')">Copy</button></td></tr>
+    <tr><td>15</td><td>Tomarket</td><td><button onclick="copyToClipboard(this, 'Tomarket')">Copy</button></td></tr>
+    <tr><td>16</td><td>Major</td><td><button onclick="copyToClipboard(this, 'Major')">Copy</button></td></tr>
+    <tr><td>17</td><td>MemeFi</td><td><button onclick="copyToClipboard(this, 'MemeFi')">Copy</button></td></tr>
+    <tr><td>18</td><td>MMproBump</td><td><button onclick="copyToClipboard(this, 'MMproBump')">Copy</button></td></tr>
+    <tr><td>19</td><td>OKX Racer</td><td><button onclick="copyToClipboard(this, 'OKX Racer')">Copy</button></td></tr>
+    <tr><td>20</td><td>RealGoat</td><td><button onclick="copyToClipboard(this, 'RealGoat')">Copy</button></td></tr>
+    <tr><td>21</td><td>Seed Coin</td><td><button onclick="copyToClipboard(this, 'Seed Coin')">Copy</button></td></tr>
+    <tr><td>22</td><td>xKucoin</td><td><button onclick="copyToClipboard(this, 'xKucoin')">Copy</button></td></tr>
+    <tr><td>23</td><td>PocketFI</td><td><button onclick="copyToClipboard(this, 'PocketFI')">Copy</button></td></tr>
+    <tr><td>24</td><td>Vertus</td><td><button onclick="copyToClipboard(this, 'Vertus')">Copy</button></td></tr>
+    <tr><td>25</td><td>YesCoin</td><td><button onclick="copyToClipboard(this, 'YesCoin')">Copy</button></td></tr>
+</table>
+
+<script>
+    function copyToClipboard(button, text) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        
+        // Ubah tampilan tombol
+        button.classList.add('used');
+        button.innerText = 'Sudah Dipakai';
+        alert(text + ' telah disalin ke clipboard!');
+    }
+</script>
+
+</body>
+</html>
+```
